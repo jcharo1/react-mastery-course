@@ -1,0 +1,19 @@
+.search-bar div{
+    
+    background-color: rgba(255, 0, 0, 0);
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+
+  
+  @keyframes example {
+    from {background-color: rgba(157,205,253);}
+    to {background-color: rgba(253,237,129);}
+    
+  }
+
+
+
+

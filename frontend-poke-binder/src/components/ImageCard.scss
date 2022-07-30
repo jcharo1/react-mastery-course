@@ -1,0 +1,71 @@
+
+.cards-container {
+    margin: 0 auto;
+    max-width: 1000px;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    align-items:top;
+    padding:30px 100px;
+    filter:drop-shadow(25px 25px 10px grey);
+  }
+
+  .card {
+  position:relative;
+  display:inline-block;
+  $width-normal: 100px;
+  width: $width-normal;
+  height: calc(1.4 * #{$width-normal});
+  animation:float 1.3s ease-in-out infinite;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  margin:10px 5px;
+  transition:transform 0.3s ease-out;
+  transform:rotateY(0deg);
+  
+  &.flipped {
+    animation-name:none;
+    transform:rotateY(180deg);
+  }
+  
+  .side {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:3%;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+  }
+  
+  .front {
+    background-color:rgb(23,49,106);
+    transition:width 0.2s ease-out, height 0.2s ease-out, top 0.2s ease-out, left 0.2s ease-out;
+  }
+  
+  .back {
+    transform:rotateY(180deg);
+    background-image:url('https://poketaz.weebly.com/uploads/4/9/7/8/4978776/6169581_orig.jpg');
+    background-size:102% 102%;
+  }
+  
+  &:hover {
+    animation:none;
+    z-index: 100;
+    
+    .side.front {
+      $width-large: 300px;
+      width: $width-large;
+      height: calc(1.4 * #{$width-large});
+      position:relative;
+      top:calc((-1 * (1.4 * #{$width-large}) / 2) + ((1.4 * #{$width-normal}) / 2));
+      left:calc((-1 * #{$width-large} / 2) + (#{$width-normal} / 2));
+    }
+  }
+}

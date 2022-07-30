@@ -3,7 +3,6 @@ import React from "react";
 import ImageCard from "./ImageCard";
 
 const ImageList = (props) => {
-  console.log(props);
   const images = Object.keys(props.pokemon).map((pokemon_name) => {
     let pokemon_data = props.pokemon[pokemon_name];
 
@@ -17,7 +16,7 @@ const ImageList = (props) => {
       />
     );
   });
-  return <div className="image-list">{images}</div>;
+  return <div className="image-list cards-container">{images}</div>;
 };
 
 export default ImageList;
