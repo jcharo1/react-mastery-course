@@ -3,6 +3,7 @@ import React from "react";
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
+import Filter from "./Filter";
 import axios from "axios";
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
         }}
       >
         <SearchBar onSubmit={this.onSearchSubmit} />
+        <Filter />
         <ImageList pokemon={this.state.pokemon} />
       </div>
     );

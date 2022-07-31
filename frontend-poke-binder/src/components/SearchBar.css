@@ -4,8 +4,11 @@
     animation-name: example;
     animation-duration: 5s;
     animation-iteration-count: infinite;
+    
 }
-
+.search-bar{
+    filter:drop-shadow(25px 25px 10px grey);
+}
 
   
   @keyframes example {

@@ -1,5 +1,6 @@
 import React from "react";
 import "./SearchBar.css";
+import Filter from "./Filter";
 class SearchBar extends React.Component {
   state = { term: "" };
   onFormSubmit = (event) => {
@@ -25,11 +26,12 @@ class SearchBar extends React.Component {
                   backgroundPosition: "right",
 
                   backgroundColor: "transparent",
-                  backgroundImage:
-                    "url('https://media4.giphy.com/media/3s2O1gbk6JNRK/giphy.gif?cid=ecf05e47kj3zlfclcmcmisv7kzuhbzur97twqe7zsaiqxl1t&rid=giphy.gif&ct=s')",
+                  //   backgroundImage:
+                  //     "url('https://media4.giphy.com/media/3s2O1gbk6JNRK/giphy.gif?cid=ecf05e47kj3zlfclcmcmisv7kzuhbzur97twqe7zsaiqxl1t&rid=giphy.gif&ct=s')",
                 }}
               />
             </div>
+            {/* <Filter /> */}
           </form>
         </div>
       </div>
