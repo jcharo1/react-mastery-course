@@ -9,12 +9,13 @@ background: url('https://i.pinimg.com/originals/ab/58/cc/ab58cc75dcb2e42555cf7e6
 html body {
     height: 100vh;
     width: 100vw;
-    background: url('https://media3.giphy.com/media/55jOowTAknOXC/giphy.gif?cid=ecf05e47i6ltqn6mu99kyzi81ky5329fbl0kpxf5jwfa8twi&rid=giphy.gif&ct=s'),url('https://media0.giphy.com/media/GltC4HZLjJLvq/giphy.gif?cid=ecf05e47zgmvi6m0u6xhyd6j1s078lhlsvrbutg4vq890wq7&rid=giphy.gif&ct=s'),url('https://i.pinimg.com/originals/ab/58/cc/ab58cc75dcb2e42555cf7e614216350a.jpg');
-    background-position: left,right bottom, left top;
+    background: url('https://media0.giphy.com/media/GltC4HZLjJLvq/giphy.gif?cid=ecf05e47zgmvi6m0u6xhyd6j1s078lhlsvrbutg4vq890wq7&rid=giphy.gif&ct=s'),url('https://i.pinimg.com/originals/ab/58/cc/ab58cc75dcb2e42555cf7e614216350a.jpg');
+    background-position: right bottom, left top;
     background-size: cover, bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
-  
+    
 }
 
 /* ./images/bg-surf-pika.jpeg */
+/* url('https://media3.giphy.com/media/55jOowTAknOXC/giphy.gif?cid=ecf05e47i6ltqn6mu99kyzi81ky5329fbl0kpxf5jwfa8twi&rid=giphy.gif&ct=s') */

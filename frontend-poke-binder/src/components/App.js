@@ -3,19 +3,24 @@ import React from "react";
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
-import Filter from "./Filter";
+import DropDownMenu from "./DropDownMenu";
 import axios from "axios";
 
 class App extends React.Component {
-  state = { pokemon: [] };
+  state = { pokemon: [], optionSelected: [], term: "" };
 
   onSearchSubmit = async (term) => {
     const response = await axios.get("http://127.0.0.1:5000/binder");
-    console.log(this);
+
     this.setState({ pokemon: response.data.pokemon });
+    console.log(term);
+  };
+  onFilterChange = (optionSelected) => {
+    this.setState({ optionSelected });
   };
 
   render() {
+    console.log(this.state.optionSelected);
     return (
       <div
         className="ui container"
@@ -23,8 +28,8 @@ class App extends React.Component {
           marginTop: "10px",
         }}
       >
-        <SearchBar onSubmit={this.onSearchSubmit} />
-        <Filter />
+        <SearchBar onTheSubmit={this.onSearchSubmit} />
+        <DropDownMenu onFilterChange={this.onFilterChange} />
         <ImageList pokemon={this.state.pokemon} />
       </div>
     );
