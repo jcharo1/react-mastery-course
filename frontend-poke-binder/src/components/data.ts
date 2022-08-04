@@ -8,7 +8,7 @@ export interface ColourOption {
   
   export const colourOptions: readonly ColourOption[] = [
     { value: 'Fossil', label: 'Fossil',  },
-    { value: 'Base Set', label: 'Base Set',},
+    { value: 'Base', label: 'Base Set',},
     { value: 'Jungle', label: 'Jungle', },
   ];
   
