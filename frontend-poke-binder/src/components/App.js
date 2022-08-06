@@ -1,10 +1,12 @@
 import React from "react";
 import qs from "qs";
-import unsplash from "../api/unsplash";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./nav-bar";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 import DropDownMenu from "./DropDownMenu";
 import axios from "axios";
+import Profile from "./views/profile.js";
 
 class App extends React.Component {
   state = { pokemon: [], optionSelected: [], term: "" };
@@ -24,7 +26,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.optionSelected);
+    console.table(this.state.optionSelected);
     return (
       <div
         className="ui container"
@@ -32,6 +34,12 @@ class App extends React.Component {
           marginTop: "10px",
         }}
       >
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Profile />} />
+          <Route path="/profile" exact element={<Profile />} />
+          {/* <Route path="/external-api" component={ExternalApi} /> */}
+        </Routes>
         <SearchBar onTheSubmit={this.onSearchSubmit} />
         <DropDownMenu onFilterChange={this.onFilterChange} />
         <ImageList pokemon={this.state.pokemon} />
