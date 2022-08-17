@@ -1,6 +1,6 @@
 import React from "react";
 import qs from "qs";
-import unsplash from "../api/unsplash";
+
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 import DropDownMenu from "./DropDownMenu";
@@ -10,12 +10,15 @@ class App extends React.Component {
   state = { pokemon: [], optionSelected: [], term: "" };
 
   onSearchSubmit = async (term) => {
-    const response = await axios.get("http://127.0.0.1:5000/binder", {
-      params: { name: term, set: this.state.optionSelected },
-      paramsSerializer: (params) => {
-        return qs.stringify(params, { arrayFormat: "repeat" });
-      },
-    });
+    const response = await axios.get(
+      "https://poketrack-backend.charo.gg/binder",
+      {
+        params: { name: term, set: this.state.optionSelected },
+        paramsSerializer: (params) => {
+          return qs.stringify(params, { arrayFormat: "repeat" });
+        },
+      }
+    );
 
     this.setState({ pokemon: response.data.pokemon });
   };
@@ -24,7 +27,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.optionSelected);
     return (
       <div
         className="ui container"

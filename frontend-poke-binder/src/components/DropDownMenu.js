@@ -2,23 +2,8 @@ import { components } from "react-select";
 import React from "react";
 
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
-import { colourOptions } from "./data.ts";
 
-// const Option = (props) => {
-//   return (
-//     <div>
-//       <components.Option {...props}>
-//         <input
-//           type="checkbox"
-//           checked={props.isSelected}
-//           onChange={() => null}
-//         />{" "}
-//         <label>{props.label}</label>
-//       </components.Option>
-//     </div>
-//   );
-// };
+import { colourOptions } from "./data.ts";
 
 class DropDownMenu extends React.Component {
   state = { optionSelected: [] };
@@ -27,8 +12,6 @@ class DropDownMenu extends React.Component {
     this.setState({
       optionSelected: selected,
     });
-
-    // console.log(this.state.optionSelected);
 
     this.props.onFilterChange(selected);
   };
