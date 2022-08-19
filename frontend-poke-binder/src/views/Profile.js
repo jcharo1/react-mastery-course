@@ -1,7 +1,8 @@
 import React from "react";
 import Example from "../components/ProfileBar";
 import image from "../images/636.png";
-
+import ShareLinkButton from "../components/ShareLinkButton";
+import ImageList from "../components/ImageList";
 const Profile = () => {
   return (
     <div className="ui segment">
@@ -15,6 +16,8 @@ const Profile = () => {
           Likeys Page
         </h2>
         <Example />
+
+        <ShareLinkButton />
       </div>
     </div>
   );
