@@ -27,6 +27,7 @@ class ImageCard extends React.Component {
             ref={this.imageRef}
             alt={description}
             src={urls}
+            // onClick={}
           />
         </a>
       </div>

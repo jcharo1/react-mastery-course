@@ -12,7 +12,8 @@ const Router = () => {
         <div>
           <NavBar />
           <Route path="/" exact component={App} />
-          <Route path="/profile" exact component={Profile} />
+          <Route path="/profile/:id?" exact component={Profile} />
+
           <Route path="/accountsettings" exact component={AccountSettings} />
         </div>
       </BrowserRouter>

@@ -1,7 +1,6 @@
 import React from "react";
+import { Button } from "semantic-ui-react";
 
-const AddCard = () => {
-  return <div>AddCard</div>;
-};
+const AddCard = () => <Button>AddCard</Button>;
 
 export default AddCard;

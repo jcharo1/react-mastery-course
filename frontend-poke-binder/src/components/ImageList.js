@@ -16,6 +16,7 @@ const ImageList = (props) => {
       />
     );
   });
+  console.log(props.pokemon);
   return <div className="image-list cards-container">{images}</div>;
 };
 
