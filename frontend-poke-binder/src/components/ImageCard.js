@@ -42,10 +42,11 @@ import { Header, Image, Modal } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import AddCardButton from "./utilites/api/api-components/AddCard";
 import "./ImageCard.scss";
+import DeleteCardButton from "./utilites/api/api-components/DeleteCard";
 class ImageCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { spans: 0, open: false };
+    this.state = { spans: 0, open: false, post: {} };
     this.imageRef = React.createRef();
   }
   componentDidMount() {
@@ -55,6 +56,14 @@ class ImageCard extends React.Component {
     const spans = Math.ceil(150 / 10);
 
     this.setState({ spans });
+  };
+  onClickHandler = (post) => {
+    this.setState({ post });
+    this.setState({ open: false });
+  };
+  onDeleteHandler = (deleted) => {
+    this.setState({ deleted });
+    this.setState({ open: false });
   };
 
   render() {
@@ -69,7 +78,7 @@ class ImageCard extends React.Component {
         <Modal
           onClose={() => this.setState({ open: false })}
           onOpen={() => this.setState({ open: true })}
-          open={this.open}
+          open={this.state.open}
           trigger={
             <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
               <Button style={{ background: "transparent" }}>
@@ -87,7 +96,14 @@ class ImageCard extends React.Component {
         >
           <Modal.Header>Pokemon Card</Modal.Header>
           <Modal.Content image>
-            <Image size="medium" src={urls} wrapped centered />
+            <Image
+              className="cards-container"
+              size="medium"
+              src={urls}
+              wrapped
+              centered
+              style={{ padding: "30px 30px" }}
+            />
             <Modal.Description>
               <Header>
                 {name} #{number}
@@ -105,14 +121,17 @@ class ImageCard extends React.Component {
               color="black"
               onClick={() => this.setState({ open: false })}
             >
-              Nope
+              Back
             </Button>
-
+            <DeleteCardButton
+              pokemonName={name}
+              onCall={this.onDeleteHandler}
+            />
             <AddCardButton
               content="Add Card"
               labelPosition="right"
               icon="checkmark"
-              onClick={() => this.setState({ open: false })}
+              onCall={this.onClickHandler}
               positive
               style={{ margin: "10px" }}
               pokemonName={name}

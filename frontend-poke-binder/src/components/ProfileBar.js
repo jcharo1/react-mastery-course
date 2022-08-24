@@ -10,11 +10,12 @@ const ProgressExampleStandard = ({ jungleSet, baseSet, fossil }) => {
             <Progress
               color="yellow"
               active
-              precision
               value={baseSet}
               size="medium"
               progress
+              autoSuccess={true}
               total={151}
+              precision={0}
             >
               Base Set
             </Progress>
@@ -28,6 +29,8 @@ const ProgressExampleStandard = ({ jungleSet, baseSet, fossil }) => {
               value={fossil}
               size="medium"
               progress
+              autoSuccess={true}
+              precision={0}
               total={62}
             >
               Fossil Set
@@ -42,6 +45,8 @@ const ProgressExampleStandard = ({ jungleSet, baseSet, fossil }) => {
               value={jungleSet}
               size="medium"
               progress
+              autoSuccess={true}
+              precision={0}
               total={64}
             >
               Jungle Set

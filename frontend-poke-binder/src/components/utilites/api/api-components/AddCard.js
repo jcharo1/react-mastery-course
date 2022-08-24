@@ -5,7 +5,7 @@ import axios from "axios";
 
 const baseURL = "http://127.0.0.1:5000/binder/";
 
-const AddCard = ({ pokemonName }) => {
+const AddCard = ({ pokemonName, onCall }) => {
   const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently } =
     useAuth0();
 
@@ -28,8 +28,9 @@ const AddCard = ({ pokemonName }) => {
       .then((response) => {
         setPost(response.data);
       });
+    onCall(post);
   }
-  console.log(post);
+
   return (
     <div>
       {isAuthenticated && (
