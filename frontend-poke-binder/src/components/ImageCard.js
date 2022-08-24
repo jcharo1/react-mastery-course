@@ -40,7 +40,7 @@
 import React, { useState } from "react";
 import { Header, Image, Modal } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
-import { useAuth0 } from "@auth0/auth0-react";
+import AddCardButton from "./utilites/api/api-components/AddCard";
 import "./ImageCard.scss";
 class ImageCard extends React.Component {
   constructor(props) {
@@ -65,54 +65,61 @@ class ImageCard extends React.Component {
     const set = this.props.pokemon_set;
 
     return (
-      <Modal
-        onClose={() => this.setState({ open: false })}
-        onOpen={() => this.setState({ open: true })}
-        open={this.open}
-        trigger={
-          <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-            <Button style={{ background: "transparent" }}>
-              <a className="card">
-                <img
-                  className="side front"
-                  ref={this.imageRef}
-                  alt={description}
-                  src={urls}
-                />
-              </a>
-            </Button>
-          </div>
-        }
-      >
-        <Modal.Header>Pokemon Card</Modal.Header>
-        <Modal.Content image>
-          <Image size="medium" src={urls} wrapped centered />
-          <Modal.Description>
-            <Header>
-              {name} #{number}
-            </Header>
-            <p>{description}</p>
-            <p>Set: {set}</p>(
-            <p>
-              Would you like to add <b>{name}</b> to your Binder?
-            </p>
-            )
-          </Modal.Description>
-        </Modal.Content>
+      <div>
+        <Modal
+          onClose={() => this.setState({ open: false })}
+          onOpen={() => this.setState({ open: true })}
+          open={this.open}
+          trigger={
+            <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+              <Button style={{ background: "transparent" }}>
+                <a className="card">
+                  <img
+                    className="side front"
+                    ref={this.imageRef}
+                    alt={description}
+                    src={urls}
+                  />
+                </a>
+              </Button>
+            </div>
+          }
+        >
+          <Modal.Header>Pokemon Card</Modal.Header>
+          <Modal.Content image>
+            <Image size="medium" src={urls} wrapped centered />
+            <Modal.Description>
+              <Header>
+                {name} #{number}
+              </Header>
+              <p>{description}</p>
+              <p>Set: {set}</p>
+              <p>
+                Would you like to add <b>{name}</b> to your Binder?
+              </p>
+            </Modal.Description>
+          </Modal.Content>
 
-        <Modal.Actions>
-          <Button color="black" onClick={() => this.setState({ open: false })}>
-            Nope
-          </Button>
-          <Button
-            content="Add Card"
-            labelPosition="right"
-            icon="checkmark"
-            onClick={() => this.setState({ open: false })}
-            positive
-          />
-        </Modal.Actions>
-      </Modal>
+          <Modal.Actions>
+            <Button
+              color="black"
+              onClick={() => this.setState({ open: false })}
+            >
+              Nope
+            </Button>
+
+            <AddCardButton
+              content="Add Card"
+              labelPosition="right"
+              icon="checkmark"
+              onClick={() => this.setState({ open: false })}
+              positive
+              style={{ margin: "10px" }}
+              pokemonName={name}
+            />
+          </Modal.Actions>
+        </Modal>
+      </div>
     );
   }
 }

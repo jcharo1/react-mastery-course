@@ -20,20 +20,20 @@ const Profile = () => {
   const [userMetadata, setUserMetadata] = useState({});
 
   const { user, getAccessTokenSilently } = useAuth0();
-  console.log(user);
+  let usernumID = user.ProfileUserID;
   useEffect(() => {
     const getUserMetadata = async () => {
       try {
         const token = await getAccessTokenSilently();
         const metadataResponse = await axios.get(
-          "http://127.0.0.1:5000/user/" + 32,
+          "http://127.0.0.1:5000/user/" + usernumID,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
         // console.log(metadataResponse);
         const user_metadata = await metadataResponse.data;
-        console.log(user_metadata);
+
         setUserMetadata(user_metadata);
       } catch (e) {
         console.log(e.message);
