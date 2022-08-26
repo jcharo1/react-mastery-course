@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
@@ -27,8 +27,9 @@ const AddCard = ({ pokemonName, onCall }) => {
       )
       .then((response) => {
         setPost(response.data);
+
+        onCall(response.data);
       });
-    onCall(post);
   }
 
   return (

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Button, Header, Image, Modal, Grid, Segment } from "semantic-ui-react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AddCardButton from "./utilites/api/api-components/AddCard";
 import "./ImageCard.scss";
 import DeleteCardButton from "./utilites/api/api-components/DeleteCard";
 class ImageCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { spans: 0, open: false, post: {} };
+    this.state = { spans: 0, open: false, post: {}, deleted: {} };
     this.imageRef = React.createRef();
   }
   componentDidMount() {
@@ -17,13 +19,42 @@ class ImageCard extends React.Component {
 
     this.setState({ spans });
   };
+
   onClickHandler = (post) => {
     this.setState({ post });
     this.setState({ open: false });
+
+    toast.success(
+      post.pokemon_added + " has successfully been added to your Binder!",
+      {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+    console.log(this.state);
   };
+
   onDeleteHandler = (deleted) => {
     this.setState({ deleted });
+    console.log(deleted);
     this.setState({ open: false });
+    toast.success(
+      deleted.deleted + " has successfully been deleted from your Binder!",
+      {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
   };
 
   render() {
@@ -96,6 +127,7 @@ class ImageCard extends React.Component {
             </Grid>
           </Modal.Actions>
         </Modal>
+        <ToastContainer />
       </div>
     );
   }

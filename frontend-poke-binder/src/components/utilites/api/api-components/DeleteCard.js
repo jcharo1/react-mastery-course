@@ -26,8 +26,8 @@ const DeleteCard = ({ pokemonName, onCall }) => {
       })
       .then((response) => {
         setDeleted(response.data);
+        onCall(response.data);
       });
-    onCall(deleted);
   }
 
   return (
