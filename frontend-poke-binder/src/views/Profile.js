@@ -31,7 +31,7 @@ const Profile = () => {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
-        // console.log(metadataResponse);
+
         const user_metadata = await metadataResponse.data;
 
         setUserMetadata(user_metadata);
@@ -65,7 +65,7 @@ const Profile = () => {
             baseSet={userMetadata.Base_Set}
             fossil={userMetadata.Fossil_Set}
           />
-          <ProfileBinder cards={userMetadata.pokemon_cards || []} />
+          <ImageList pokemon={userMetadata.pokemon_cards || []} />
           <ShareLinkButton />
         </div>
       </div>

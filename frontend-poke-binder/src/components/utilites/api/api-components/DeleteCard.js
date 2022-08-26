@@ -33,8 +33,8 @@ const DeleteCard = ({ pokemonName, onCall }) => {
   return (
     <div>
       {isAuthenticated && (
-        <Button color="green" onClick={createDelete}>
-          DeleteCard
+        <Button color="red" onClick={createDelete}>
+          Delete
         </Button>
       )}
     </div>

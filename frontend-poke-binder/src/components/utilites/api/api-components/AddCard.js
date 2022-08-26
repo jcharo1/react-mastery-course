@@ -35,7 +35,7 @@ const AddCard = ({ pokemonName, onCall }) => {
     <div>
       {isAuthenticated && (
         <Button color="green" onClick={createPost}>
-          Add Card
+          Add
         </Button>
       )}
       {!isAuthenticated && (

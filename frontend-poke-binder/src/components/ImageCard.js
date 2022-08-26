@@ -1,45 +1,5 @@
-// import React from "react";
-// import { Button } from "semantic-ui-react";
-// import "./ImageCard.scss";
-// class ImageCard extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { spans: 0 };
-//     this.imageRef = React.createRef();
-//   }
-//   componentDidMount() {
-//     this.imageRef.current.addEventListener("load", this.setSpans);
-//   }
-//   setSpans = () => {
-//     const spans = Math.ceil(150 / 10);
-
-//     this.setState({ spans });
-//   };
-
-//   render() {
-//     const urls = this.props.image;
-//     const description = this.props.description;
-
-//     return (
-//       <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-//         <Button style={{ background: "transparent" }}>
-//           <a className="card">
-//             <img
-//               className="side front"
-//               ref={this.imageRef}
-//               alt={description}
-//               src={urls}
-//             />
-//           </a>
-//         </Button>
-//       </div>
-//     );
-//   }
-// }
-// export default ImageCard;
 import React, { useState } from "react";
-import { Header, Image, Modal } from "semantic-ui-react";
-import { Button } from "semantic-ui-react";
+import { Button, Header, Image, Modal, Grid, Segment } from "semantic-ui-react";
 import AddCardButton from "./utilites/api/api-components/AddCard";
 import "./ImageCard.scss";
 import DeleteCardButton from "./utilites/api/api-components/DeleteCard";
@@ -76,6 +36,7 @@ class ImageCard extends React.Component {
     return (
       <div>
         <Modal
+          closeIcon
           onClose={() => this.setState({ open: false })}
           onOpen={() => this.setState({ open: true })}
           open={this.state.open}
@@ -116,26 +77,23 @@ class ImageCard extends React.Component {
             </Modal.Description>
           </Modal.Content>
 
-          <Modal.Actions>
-            <Button
-              color="black"
-              onClick={() => this.setState({ open: false })}
-            >
-              Back
-            </Button>
-            <DeleteCardButton
-              pokemonName={name}
-              onCall={this.onDeleteHandler}
-            />
-            <AddCardButton
-              content="Add Card"
-              labelPosition="right"
-              icon="checkmark"
-              onCall={this.onClickHandler}
-              positive
-              style={{ margin: "10px" }}
-              pokemonName={name}
-            />
+          <Modal.Actions style={{ background: "transparent" }}>
+            <Grid container columns="equal">
+              <Grid.Column>
+                <DeleteCardButton
+                  pokemonName={name}
+                  onCall={this.onDeleteHandler}
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <AddCardButton
+                  content="Add Card"
+                  icon="checkmark"
+                  onCall={this.onClickHandler}
+                  pokemonName={name}
+                />
+              </Grid.Column>
+            </Grid>
           </Modal.Actions>
         </Modal>
       </div>
