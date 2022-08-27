@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Header, Image, Modal, Grid, Segment } from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import gbBorder from "../images/gbBorder2.png";
 import AddCardButton from "./utilites/api/api-components/AddCard";
 import "./ImageCard.scss";
 import DeleteCardButton from "./utilites/api/api-components/DeleteCard";
@@ -15,7 +16,7 @@ class ImageCard extends React.Component {
     this.imageRef.current.addEventListener("load", this.setSpans);
   }
   setSpans = () => {
-    const spans = Math.ceil(150 / 10);
+    const spans = Math.ceil(200 / 10);
 
     this.setState({ spans });
   };
@@ -63,16 +64,17 @@ class ImageCard extends React.Component {
     const name = this.props.name;
     const number = this.props.pokemon_number;
     const set = this.props.pokemon_set;
-
+    const externalImage = gbBorder;
     return (
       <div>
         <Modal
+          style={{ background: "black" }}
           closeIcon
           onClose={() => this.setState({ open: false })}
           onOpen={() => this.setState({ open: true })}
           open={this.state.open}
           trigger={
-            <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+            <div>
               <Button style={{ background: "transparent" }}>
                 <a className="card">
                   <img
@@ -86,46 +88,72 @@ class ImageCard extends React.Component {
             </div>
           }
         >
-          <Modal.Header>Pokemon Card</Modal.Header>
+          {/* <Modal.Header>
+            <Grid container columns={3}>
+              <Grid.Column></Grid.Column>
+              <Grid.Column
+                style={{
+                  fontFamily: "pokemon_gbregular",
+                  textAlign: "center",
+                  backgroundImage: `url(${externalImage})`,
+                  backgroundSize: "100% 100%",
+                  backgroundRepeat: "no-repeat",
+                  padding: "20px 100px",
+                  filter: "drop-shadow(10px 10px 10px grey)",
+                }}
+              >
+                {" "}
+                Pokemon Card
+              </Grid.Column>
+              <Grid.Column></Grid.Column>
+            </Grid>
+          </Modal.Header> */}
           <Modal.Content image>
             <Image
-              className="cards-container"
-              size="medium"
+              className="cards-container center"
               src={urls}
+              size="large"
               wrapped
-              centered
-              style={{ padding: "30px 30px" }}
             />
+
             <Modal.Description>
-              <Header>
-                {name} #{number}
-              </Header>
-              <p>{description}</p>
-              <p>Set: {set}</p>
-              <p>
-                Would you like to add <b>{name}</b> to your Binder?
-              </p>
+              <Grid
+                container
+                style={{
+                  backgroundImage: `url(${externalImage})`,
+                  backgroundSize: "100% 100%",
+                  backgroundRepeat: "no-repeat",
+                  padding: "60px",
+                  filter: "drop-shadow(10px 10px 10px grey)",
+                }}
+              >
+                <Header style={{ fontFamily: "'pokemon_gbregular'" }}>
+                  {name} #{number}
+                </Header>
+                <p>{description}</p>
+                <p>Set: {set}</p>
+                <p>
+                  Would you like to add <b>{name}</b> to your Binder?
+                </p>
+                <Grid container columns="equal">
+                  <Grid.Column>
+                    <DeleteCardButton
+                      pokemonName={name}
+                      onCall={this.onDeleteHandler}
+                    />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <AddCardButton
+                      content="Add Card"
+                      icon="checkmark"
+                      onCall={this.onClickHandler}
+                      pokemonName={name}
+                    />
+                  </Grid.Column>
+                </Grid>
+              </Grid>
             </Modal.Description>
           </Modal.Content>
-
-          <Modal.Actions style={{ background: "transparent" }}>
-            <Grid container columns="equal">
-              <Grid.Column>
-                <DeleteCardButton
-                  pokemonName={name}
-                  onCall={this.onDeleteHandler}
-                />
-              </Grid.Column>
-              <Grid.Column>
-                <AddCardButton
-                  content="Add Card"
-                  icon="checkmark"
-                  onCall={this.onClickHandler}
-                  pokemonName={name}
-                />
-              </Grid.Column>
-            </Grid>
-          </Modal.Actions>
         </Modal>
         <ToastContainer />
       </div>

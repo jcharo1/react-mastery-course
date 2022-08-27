@@ -18,5 +18,17 @@ html body {
     
 }
 
+@font-face {
+    font-family: 'pokemon_gbregular';
+    src: url('pokemongb-raeo-webfont.woff2') format('woff2'),
+         url('pokemongb-raeo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+* {
+    font-family: 'pokemon_gbregular'
+ }
+
 /* ./images/bg-surf-pika.jpeg */
 /* url('https://media3.giphy.com/media/55jOowTAknOXC/giphy.gif?cid=ecf05e47i6ltqn6mu99kyzi81ky5329fbl0kpxf5jwfa8twi&rid=giphy.gif&ct=s') */

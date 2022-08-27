@@ -7,9 +7,17 @@
     justify-content:flex-start;
     flex-wrap:wrap;
     align-items:top;
-    padding:30px 100px;
+    padding:30px 30px;
     filter:drop-shadow(25px 25px 10px grey);
   }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
 
   .card {
   position:relative;
