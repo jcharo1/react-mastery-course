@@ -3,6 +3,7 @@ import { Button, Header, Image, Modal, Grid, Segment } from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import gbBorder from "../images/gbBorder2.png";
+import gbBorder1 from "../images/gbBorder.png";
 import AddCardButton from "./utilites/api/api-components/AddCard";
 import "./ImageCard.scss";
 import DeleteCardButton from "./utilites/api/api-components/DeleteCard";
@@ -65,10 +66,11 @@ class ImageCard extends React.Component {
     const number = this.props.pokemon_number;
     const set = this.props.pokemon_set;
     const externalImage = gbBorder;
+    const modalbg = gbBorder1;
     return (
       <div>
         <Modal
-          style={{ background: "black" }}
+          style={{ background: "transparent" }}
           closeIcon
           onClose={() => this.setState({ open: false })}
           onOpen={() => this.setState({ open: true })}
@@ -108,7 +110,17 @@ class ImageCard extends React.Component {
               <Grid.Column></Grid.Column>
             </Grid>
           </Modal.Header> */}
-          <Modal.Content image>
+          <Modal.Content
+            image
+            // style={{
+            //   background: "transparent",
+            //   backgroundImage: `url(${modalbg})`,
+            //   backgroundSize: "100% 100%",
+            //   backgroundRepeat: "no-repeat",
+            //   padding: "60px",
+            //   filter: "drop-shadow(10px 10px 10px grey)",
+            // }}
+          >
             <Image
               className="cards-container center"
               src={urls}

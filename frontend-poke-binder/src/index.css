@@ -27,7 +27,7 @@ html body {
 
 }
 * {
-    font-family: 'pokemon_gbregular'
+    font-family: 'pokemon_gbregular' !important
  }
 
 /* ./images/bg-surf-pika.jpeg */
