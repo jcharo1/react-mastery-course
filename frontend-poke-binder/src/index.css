@@ -27,8 +27,10 @@ html body {
 
 }
 * {
-    font-family: 'pokemon_gbregular' !important
+    font-family: 'pokemon_gbregular' 
  }
+
+
 
 /* ./images/bg-surf-pika.jpeg */
 /* url('https://media3.giphy.com/media/55jOowTAknOXC/giphy.gif?cid=ecf05e47i6ltqn6mu99kyzi81ky5329fbl0kpxf5jwfa8twi&rid=giphy.gif&ct=s') */

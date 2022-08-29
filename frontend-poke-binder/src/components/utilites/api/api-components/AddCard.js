@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
@@ -35,9 +35,14 @@ const AddCard = ({ pokemonName, onCall }) => {
   return (
     <div>
       {isAuthenticated && (
-        <Button color="green" onClick={createPost}>
-          Add
-        </Button>
+        <button
+          className="button-modal"
+          onClick={createPost}
+          style={{ padding: "15px" }}
+        ></button>
+        // <Button className="btn" basic color="transparent" onClick={createPost}>
+        //   Add
+        // </Button>
       )}
       {!isAuthenticated && (
         <Button color="red" onClick={() => loginWithRedirect()}>

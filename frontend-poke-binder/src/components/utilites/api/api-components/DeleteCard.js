@@ -33,9 +33,7 @@ const DeleteCard = ({ pokemonName, onCall }) => {
   return (
     <div>
       {isAuthenticated && (
-        <Button color="red" onClick={createDelete}>
-          Delete
-        </Button>
+        <button className="button-modal-del" oncall={createDelete}></button>
       )}
     </div>
   );

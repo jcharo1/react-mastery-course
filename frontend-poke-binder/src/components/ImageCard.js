@@ -110,17 +110,7 @@ class ImageCard extends React.Component {
               <Grid.Column></Grid.Column>
             </Grid>
           </Modal.Header> */}
-          <Modal.Content
-            image
-            // style={{
-            //   background: "transparent",
-            //   backgroundImage: `url(${modalbg})`,
-            //   backgroundSize: "100% 100%",
-            //   backgroundRepeat: "no-repeat",
-            //   padding: "60px",
-            //   filter: "drop-shadow(10px 10px 10px grey)",
-            // }}
-          >
+          <Modal.Content image>
             <Image
               className="cards-container center"
               src={urls}
@@ -157,7 +147,6 @@ class ImageCard extends React.Component {
                   <Grid.Column>
                     <AddCardButton
                       content="Add Card"
-                      icon="checkmark"
                       onCall={this.onClickHandler}
                       pokemonName={name}
                     />
