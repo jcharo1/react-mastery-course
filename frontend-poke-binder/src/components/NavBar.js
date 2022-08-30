@@ -3,7 +3,7 @@ import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoginButton from "./LoginButton";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import "./SearchBar.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -40,7 +40,7 @@ const Header = () => {
       )}
       {!isAuthenticated && (
         <div className="right menu">
-          <LoginButton />
+          <LoginButton className="button-navbar" />
         </div>
       )}
     </div>

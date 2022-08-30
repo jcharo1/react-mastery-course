@@ -12,15 +12,16 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
+import "./SearchBar.css";
 const LoginButton = () => {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
     <div>
       {isAuthenticated && (
-        <Button color="red" onClick={() => logout()}>
-          Log Out
-        </Button>
+        <button className="button-navbar" onClick={() => loginWithRedirect()}>
+          Sign Out
+        </button>
       )}
       {!isAuthenticated && (
         <Button color="green" onClick={() => loginWithRedirect()}>

@@ -1,5 +1,12 @@
 
-.search-bar{
+.ui.segment{
+
+background: rgba(255, 255, 255, 0.06);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.4px);
+-webkit-backdrop-filter: blur(8.4px);
+font-family: 'pokemon_gbregular' ;
     filter:drop-shadow(25px 25px 10px grey);
 }
 
@@ -11,5 +18,43 @@
   }
 
 
+  .button-navbar{
+    content: " ADD";
+      align-items: center;
+      background:rgba(255, 255, 255, 0);
+      border: 0;
+      border-radius: 8px;
+      box-shadow: -10px -10px 30px 0 rgba(255, 255, 255, 0),10px 10px 30px 0 #1d0dca17;
+      box-sizing: border-box;
+      color: #2a1f62;
+      cursor: pointer;
+      display: flex;
+      font-family: 'pokemon_gbregular';
+      font-size: 1rem;
+      justify-content: center;
+      line-height: 1.5rem;
+      padding: 15px;
+      position: relative;
+      text-align: left;
+      transition: .2s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: pre;
+      width: 150px;
+      word-break: normal;
+      word-spacing: normal;
+      
+    }
+    
+    .input::placeholder {
+        font-weight: bold;
+        opacity: .5;
+        color: red;
+    }
 
 
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}

@@ -45,9 +45,16 @@ const AddCard = ({ pokemonName, onCall }) => {
         // </Button>
       )}
       {!isAuthenticated && (
-        <Button color="red" onClick={() => loginWithRedirect()}>
+        // <Button color="red" onClick={() => loginWithRedirect()}>
+        //   Login/Sign Up
+        // </Button>
+        <button
+          className="button-modal"
+          onClick={() => loginWithRedirect()}
+          style={{ padding: "15px" }}
+        >
           Login/Sign Up
-        </Button>
+        </button>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import "./ImageList.css";
 
 import ImageCard from "./ImageCard";
-
+// import ReactPaginate from "react-paginate";
 const ImageList = (props) => {
   const images = props.pokemon.map((pokemon_name) => {
     // let pokemon_data = props.pokemon[pokemon_name];

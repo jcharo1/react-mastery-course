@@ -110,7 +110,16 @@ class ImageCard extends React.Component {
               <Grid.Column></Grid.Column>
             </Grid>
           </Modal.Header> */}
-          <Modal.Content image>
+          <Modal.Content
+            image
+            style={{
+              background: "rgba(255, 255, 255, 0.59)",
+              borderRadius: "16px",
+              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+            }}
+          >
             <Image
               className="cards-container center"
               src={urls}

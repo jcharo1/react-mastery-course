@@ -11,10 +11,12 @@ html body {
     height: 100vh;
     width: 100vw;
     background: url(./images/surfingpika.jpeg);
-    background-position: cover;
+    /* background-color:rgba(177, 201, 139, 100) ; */
+    
+    /* background-position: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     
 }
 

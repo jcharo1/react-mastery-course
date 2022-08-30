@@ -6,10 +6,10 @@ export interface ColourOption {
     readonly isDisabled?: boolean;
   }
   
-  export const colourOptions: readonly ColourOption[] = [
-    { value: 'Fossil', label: 'Fossil',  },
-    { value: 'Base', label: 'Base Set',},
-    { value: 'Jungle', label: 'Jungle', },
+  export const colourOptions = [
+    { value: 'Fossil', label: 'Fossil',color: "#FFD700"  },
+    { value: 'Base', label: 'Base Set',color: "#FFD700"},
+    { value: 'Jungle', label: 'Jungle', color: "#FFD700"},
   ];
 
   
