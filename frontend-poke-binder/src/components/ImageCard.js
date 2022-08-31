@@ -113,11 +113,14 @@ class ImageCard extends React.Component {
           <Modal.Content
             image
             style={{
-              background: "rgba(255, 255, 255, 0.59)",
+              backgroundSize: "100% 100%",
+              background: "rgba(0, 240, 255, 0.38)",
               borderRadius: "16px",
               boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
+              padding: "60px",
+              border: " 1px solid rgba(0, 240, 255, 0.3)",
             }}
           >
             <Image
@@ -131,11 +134,15 @@ class ImageCard extends React.Component {
               <Grid
                 container
                 style={{
-                  backgroundImage: `url(${externalImage})`,
                   backgroundSize: "100% 100%",
-                  backgroundRepeat: "no-repeat",
+                  background: "rgba(255, 255, 255, 0.9)",
+
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
                   padding: "60px",
-                  filter: "drop-shadow(10px 10px 10px grey)",
+                  border: " 1px solid rgba(255, 255, 255, 0.3)",
                 }}
               >
                 <Header style={{ fontFamily: "'pokemon_gbregular'" }}>

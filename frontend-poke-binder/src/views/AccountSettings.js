@@ -3,6 +3,16 @@ import { Image } from "semantic-ui-react";
 import { useState } from "react";
 import { storage } from "../components/fireBase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import TopCards from "../components/ProfilePageTopCards";
+import "../components/ProfilePageTopCards.scss";
+import {
+  Button,
+  Header,
+  Modal,
+  Grid,
+  Segment,
+  Container,
+} from "semantic-ui-react";
 import { v4 as uuidv4 } from "uuid";
 const AccountSettings = () => {
   const [image, setImage] = useState(null);
@@ -31,12 +41,17 @@ const AccountSettings = () => {
       });
   };
   return (
-    <div className="ui segment">
-      account settings
-      <Image src={url} size="medium" circular />
-      <input type="file" onChange={handleImageChange} />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+    <>
+      <Grid container columns={1}>
+        <Grid.Column>
+          account settings
+          <Image src={url} size="medium" circular />
+          <input type="file" onChange={handleImageChange} />
+          <button onClick={handleSubmit}>Submit</button>
+          <TopCards />
+        </Grid.Column>
+      </Grid>
+    </>
   );
 };
 

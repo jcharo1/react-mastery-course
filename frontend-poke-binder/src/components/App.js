@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 import DropDownMenu from "./DropDownMenu";
 import axios from "axios";
-
+import { Button, Header, Image, Modal, Grid, Segment } from "semantic-ui-react";
 class App extends React.Component {
   state = { pokemon: [], optionSelected: [], term: "" };
 
@@ -37,12 +37,16 @@ class App extends React.Component {
           WebkitBackdropFilter: "blur(20px)",
         }}
       >
-        <SearchBar
-          onFilterChange={this.onFilterChange}
-          onTheSubmit={this.onSearchSubmit}
-        />
-        <DropDownMenu onFilterChange={this.onFilterChange} />
-        <ImageList pokemon={this.state.pokemon} />
+        <Grid stackable columns="equal">
+          <Grid.Column>
+            <SearchBar
+              onFilterChange={this.onFilterChange}
+              onTheSubmit={this.onSearchSubmit}
+            />
+            <DropDownMenu onFilterChange={this.onFilterChange} />
+            <ImageList pokemon={this.state.pokemon} />
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }

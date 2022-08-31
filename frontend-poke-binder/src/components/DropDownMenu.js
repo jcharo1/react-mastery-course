@@ -41,7 +41,6 @@ class DropDownMenu extends React.Component {
   state = { optionSelected: [] };
 
   handleChange = (selected) => {
-    console.log(selected);
     this.setState({
       optionSelected: selected,
     });
