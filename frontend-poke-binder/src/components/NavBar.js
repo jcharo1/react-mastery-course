@@ -53,14 +53,20 @@ import { Menu } from "semantic-ui-react";
 const Header = () => {
   const { user, isAuthenticated, loginWithRedirect, logout, isLoading } =
     useAuth0();
+  const [activeItem, setActiveItem] = React.useState({});
+
+  function handleNavClick(e, { name }) {
+    setActiveItem(name);
+  }
   if (isLoading) {
     return <div>Loading ...</div>;
   }
   return (
     <Menu
-      stackable
+      secondary
+      tabular
       style={{
-        padding: "0px 10px 10px 0px",
+        padding: "0px 0px 0px 0px",
         background: "rgba(255, 255, 255, 0.1)",
         borderRadius: "16px",
         boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -68,13 +74,21 @@ const Header = () => {
         WebkitBackdropFilter: "blur(20px)",
       }}
     >
-      <Menu.Item name="default" fitted>
+      <Menu.Item
+        name="search"
+        active={activeItem === "search"}
+        onClick={handleNavClick}
+      >
         <Link to="/" className="item">
           Pokemon Search
         </Link>
       </Menu.Item>
 
-      <Menu.Item>
+      <Menu.Item
+        name="profile"
+        active={activeItem === "profile"}
+        onClick={handleNavClick}
+      >
         {isAuthenticated && (
           <Link to="/profile" className="item">
             Profile
@@ -82,7 +96,11 @@ const Header = () => {
         )}
       </Menu.Item>
 
-      <Menu.Item>
+      <Menu.Item
+        name="accountsettings"
+        active={activeItem === "accountsettings"}
+        onClick={handleNavClick}
+      >
         {isAuthenticated && (
           <Link to="/accountsettings" className="item">
             Account Settings

@@ -4,6 +4,7 @@ import AccountSettings from "../../views/AccountSettings";
 import App from "../App";
 import Profile from "../../views/Profile";
 import Header from "../Header";
+import { Segment } from "semantic-ui-react";
 import NavBar from "../NavBar";
 const Router = () => {
   return (

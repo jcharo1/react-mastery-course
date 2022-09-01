@@ -30,6 +30,7 @@ const customStyles = {
     padding: 0,
   }),
   multiValue: (styles, { data }) => {
+    console.log(styles);
     return { ...styles, backgroundColor: data.color };
   },
   option: (styles, { data }) => {

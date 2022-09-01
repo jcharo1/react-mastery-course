@@ -38,7 +38,6 @@ class ImageCard extends React.Component {
         progress: undefined,
       }
     );
-    console.log(this.state);
   };
 
   onDeleteHandler = (deleted) => {
